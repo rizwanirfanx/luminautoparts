@@ -1,0 +1,56 @@
+<section class="image-cards">
+  <div class="image-cards__container ">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'image-card' %}
+          <div class="image-cards__container__image-card" style="background-image: url('{{ block.settings.image-card-src |  image_url  }}');" class="image-cards__container__image-card">
+            <p>{{ block.settings.image-card-title }}</p>
+          </div>
+        {% else %}
+
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Image Cards",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image-card",
+      "name": "Image Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "image-card-title",
+          "label": "Image Card Title",
+          "default": "Hello Store Owner"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-card-src",
+          "label": "Image Card Source Image"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+        }
+
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+        "name" : "Image Cards"
+    }
+  ]
+}
+{% endschema %}

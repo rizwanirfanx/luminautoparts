@@ -3517,3 +3517,39 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+.image-cards{
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 700px) {
+  .image-cards{
+    width: 90%;
+  }
+}
+.image-cards__container{
+  display: grid;
+  padding: 2rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  column-gap: 2rem;
+  row-gap: 2rem;
+
+}
+@media screen  and (min-width: 1200px){
+  .image-cards__container{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.image-cards__container__image-card{
+  color: white;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 25rem;
+  height: 20vw;
+  border-radius: 1rem;
+}
+.image-cards__container__image-card:hover{
+  cursor: pointer;
+}
